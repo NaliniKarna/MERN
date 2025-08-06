@@ -1,6 +1,8 @@
 import express from "express";
+require('dotenv').config();
 
 const app = express();
+const PORT = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
     res.status(200). json({
@@ -20,6 +22,6 @@ app.delete('/items/:id', (req,res)=> {
     res.send("Got a DELETE request");
 });
 
-app.listen(8000, () => {
-    console.log("Server running on 8000");
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
 }); // app listening frontend on backend port 8000.
